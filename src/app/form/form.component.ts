@@ -7,7 +7,6 @@ import { PersonService } from '../PersonService.service';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
-  providers: [LoggingService, PersonService]
 })
 export class FormComponent {
 
@@ -17,13 +16,14 @@ export class FormComponent {
     inputName: string=""
     inputLastname: string=""
     
-    constructor(private loggingService:LoggingService, private personService:PersonService){ }   
+    constructor(private loggingService:LoggingService, private personService:PersonService){
+        this.personService.greet.subscribe(
+            (index:number) => alert("Index: "+index)
+        )
+    }   
 
     addPerson(){
         let person1 = new Person(this.inputName, this.inputLastname)
-        //this.loggingService.logToConsole("Person: "+person1)
-        //Eliminado para usar el PersonServicie
-        //this.newPerson.emit(person1)
         this.personService.addPerson(person1)
         this.inputName=""
         this.inputLastname=""

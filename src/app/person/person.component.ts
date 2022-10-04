@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Person } from '../Person.model';
+import { PersonService } from '../PersonService.service';
 
 @Component({
   selector: 'app-person',
@@ -10,5 +11,15 @@ export class PersonComponent {
 
     @Input() person: Person
     @Input() index: number
+
+    constructor(private personservice: PersonService){}
+
+    ngOnInit(){
+
+    }
+
+    emmitGreetings(){
+        this.personservice.greet.emit(this.index);
+    }
 
 }

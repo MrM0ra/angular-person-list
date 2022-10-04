@@ -13,8 +13,7 @@ export class AppComponent implements OnInit {
     title = 'Person List'
     persons: Person[] = []
 
-
-    constructor(private personService:PersonService){ }
+    constructor(private personService:PersonService){}
     
     ngOnInit(): void {
         this.persons = this.personService.persons
