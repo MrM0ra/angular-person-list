@@ -3,7 +3,8 @@
         <h1>{{title}}</h1>
     </div>
     <hr/>
-    <app-form (newPerson)="addPerson($event)"></app-form>
+    <!--<app-form (newPerson)="addPerson($event)"></app-form>-->
+    <app-form></app-form>
 </div>
 
 <app-person *ngFor="let personElement of persons; let i = index" [person] ="personElement" [index]="i">
